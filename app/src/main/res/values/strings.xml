@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name" translatable="false">Bulleys</string>
+    <string name="instruction_text" translatable="false">Put The BullEyes As Close As You Can Do</string>
+    <string name="min_value_text">1</string>
+    <string name="max_value_text">100</string>
+    <string name="target_value_text">89</string>
+    <string name="hit_me_button_text">HIT ME</string>
+    <string name="result_dialog_button_text">Awesome!</string>
+    <string name="result_dialog_message">The Slider\'s value is %1$d.</string>
+    <string name="result_dialog_title">Hello there!</string>
+
+
+</resources>
