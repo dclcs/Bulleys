@@ -20,10 +20,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.bulleys.ui.theme.BulleysTheme
+import kotlin.math.abs
+import kotlin.random.Random
 
 @Composable
 fun GameScreen() {
@@ -33,7 +36,16 @@ fun GameScreen() {
     var sliderValue by rememberSaveable {
         mutableStateOf(0.5f)
     }
+    val targetValue by rememberSaveable {
+        mutableStateOf(Random.nextInt(1, 100))
+    }
     val sliderToInt = (sliderValue * 100).toInt()
+
+    fun pointsForCurrentRound(): Int {
+        val maxScore = 100
+        val difference: Int = abs(targetValue - sliderToInt)
+        return maxScore - difference
+    }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -48,7 +60,7 @@ fun GameScreen() {
             verticalArrangement = Arrangement.SpaceEvenly,
             modifier = Modifier.weight(9f)
         ) {
-            GamePrompt()
+            GamePrompt(targetValue = targetValue)
             TargetSlider(
                 value = sliderValue,
                 valueChanged = { value ->
@@ -65,14 +77,15 @@ fun GameScreen() {
         if (alertIsVisible) {
             ResultDialog(
                 hideDialog = { alertIsVisible = false },
-                sliderValue = sliderToInt
+                sliderValue = sliderToInt,
+                points = pointsForCurrentRound()
             )
         }
     }
 }
 
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, device = Devices.AUTOMOTIVE_1024p, widthDp = 864, heightDp = 432)
 @Composable
 fun GreetingPreview() {
     BulleysTheme {
