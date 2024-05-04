@@ -28,6 +28,7 @@ fun ResultDialog(
                 onRoundIncrement()
             }) {
                 Text(text = stringResource(id = R.string.result_dialog_button_text))
+
             }
         },
         title = { Text(text = stringResource(id = dialogTitle)) },

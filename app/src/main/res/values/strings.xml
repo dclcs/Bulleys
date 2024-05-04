@@ -16,6 +16,8 @@
     <string name="alert_title_2">You almost had it!</string>
     <string name="alert_title_3">Not bad.</string>
     <string name="alert_title_4">Are you even trying?</string>
+    <string name="slider_thumb_description">Slider thumb</string>
+    <string name="background_image">Background Image</string>
 
 
 </resources>
