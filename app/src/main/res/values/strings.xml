@@ -18,6 +18,8 @@
     <string name="alert_title_4">Are you even trying?</string>
     <string name="slider_thumb_description">Slider thumb</string>
     <string name="background_image">Background Image</string>
-
-
+    <string name="back_button_text">Go Back!</string>
+    <string name="about_page_title">About Bulleys</string>
+    <string name="about_title_text">Bulleys</string>
+    <string name="about_bulleys_text">This is Bulleyes,the game where you can win points and earn fame by dragging a slider.\n akdsjaklsdjalksdhalkjfhaljkfhakjfhakfhalkfa lfajfhalkjfhalfa fa af asfhaj \n sdkajhd</string>
 </resources>

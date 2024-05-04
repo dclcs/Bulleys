@@ -9,11 +9,17 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.bulleys.screens.AboutScreen
 import com.example.bulleys.screens.GameScreen
 import com.example.bulleys.ui.theme.BulleysTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         setContent {
             BulleysTheme {
@@ -22,7 +28,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GameScreen()
+                    MainScreen()
                 }
             }
         }
@@ -35,5 +41,14 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         text = "Hello $name!",
         modifier = modifier
     )
+}
+
+@Composable
+fun MainScreen() {
+    var navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "gameScreen") {
+        composable("gameScreen") { GameScreen(onNavigateToAbout = { navController.navigate("about") }) }
+        composable("about") { AboutScreen(navigateToGame = { navController.navigate("gameScreen") }) }
+    }
 }
 

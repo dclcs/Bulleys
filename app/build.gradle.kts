@@ -50,7 +50,8 @@ android {
 }
 
 dependencies {
-
+    val nav_version = "2.7.7"
+    val splash_version = "1.0.1"
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -59,7 +60,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-//    implementation(libs.androidx.material3.android)
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation("androidx.core:core-splashscreen:$splash_version")
+
     implementation(libs.androidx.compose.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
